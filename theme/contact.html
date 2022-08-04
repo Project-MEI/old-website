@@ -11,7 +11,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dtox</title>
+  <title>Project MEI | Shogun</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,13 +69,10 @@
             <a class="nav-link page-scroll" href="index.html#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="index.html#pricing">Pricing</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-        <a href="#" class="btn btn-primary ml-lg-3 primary-shadow">Try Free</a>
+        <a href="https://dash.project-mei.xyz" class="btn btn-primary ml-lg-3 primary-shadow">Dashboard</a>
       </div>
     </nav>
   </div>
@@ -92,22 +89,25 @@
         </div>
         <div class="row contact-bg p-5 rounded mb-5">
             <div class="col-lg-7 mb-4 mb-lg-0">
-                <form action="#">
-                    <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name">
-                    <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Your Email">
-                    <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Subject">
-                    <textarea name="message" id="message" class="form-control mb-3" placeholder="Your Message"></textarea>
+                <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+                    <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Your Email" required>
+                    <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Subject" required>
+                    <textarea name="message" id="message" class="form-control mb-3" placeholder="Your Message" required></textarea>
+					<div data-netlify-recaptcha="true"></div>
                     <button type="submit" value="send" class="btn btn-secondary">SEND MESSAGE</button>
                 </form>
             </div>
             <div class="col-lg-5">
-                <p class="mb-5">If you'll like to know more about our experience designing and delivering cloud solutions, or get advice on your own technology challenges get in touch. With dedicated engineers on-hand 24/7,      we’re set up to become an extension of your team.</p>
-                <a href="tel:+442081446356" class="text-color h5 d-block">+44 20 8144 6356</a>
-                <a href="mailto:info@altostack.io" class="mb-5 text-color h5 d-block">info@altostack.io</a>
-                <p>71 Shelton Street<br>London WC2H 9JQ England</p>
+                <p class="mb-5">Fill in this form to get in touch with us. Your query will be forwarded to Raiden's inbox.<br><br>
+					And yes, this form actually work and is not a placeholder, so please <b>do not</b> submit dumb stuff to my inbox.
+				</p>
+                <a href="https://discord.gg/ecjSWjTdsd" class="text-color h5 d-block">Discord | Support Server Link</a>
+                <a href="mailto:raiden@project-mei.xyz" class="mb-5 text-color h5 d-block">Inbox | raiden@project-mei.xyz</a>
+                <p>&copyShogun Bot<br>Part of Project MEI</p>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                 <div class="card p-4 border-blue">
                     <h5><i class="ti-layers-alt round-icon blue mr-2"></i> Sales</h5>
@@ -126,7 +126,7 @@
                     <p class="mb-0">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- background shapes -->
     <img class="contact-bg-1 up-down-animation" src="images/background-shape/feature-bg-2.png" alt="background-shape">
@@ -154,7 +154,6 @@
           <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
           <li class="list-inline-item"><a href="about.html">About</a></li>
           <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
           <li class="list-inline-item"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -162,16 +161,13 @@
       <nav class="col-12">
         <ul class="list-inline text-lg-right text-center social-icon">
           <li class="list-inline-item">
-            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+            <a class="black" href="mailto:raiden@project-mei.xyz"><i class=" ti-email "></i></a>
           </li>
           <li class="list-inline-item">
-            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+            <a class="black" href="https://www.youtube.com/channel/UCy0KY-OdaxN1-v6jqhHgesQ"><i class="ti-youtube"></i></a>
           </li>
           <li class="list-inline-item">
-            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="black" href="#"><i class="ti-github"></i></a>
+            <a class="black" href="https://github.com/raidensakura"><i class="ti-github"></i></a>
           </li>
         </ul>
       </nav>
