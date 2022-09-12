@@ -1,5 +1,5 @@
 ## Live at: https://project-mei.xyz
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fproject-mei.xyz) ![Netlify](https://img.shields.io/netlify/2a9e0c99-e197-4af0-8fd2-4a4ab408c242) ![GitHub](https://img.shields.io/github/license/raidensakura/project-mei) ![Discord](https://img.shields.io/discord/616969119685935162) ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/project-mei.xyz?publish)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fproject-mei.xyz) ![Netlify](https://img.shields.io/netlify/2a9e0c99-e197-4af0-8fd2-4a4ab408c242) ![GitHub](https://img.shields.io/github/license/raidensakura/project-mei) ![Discord](https://img.shields.io/discord/616969119685935162)
 
 ![dtox](https://demo.themefisher.com/thumbnails/dtox.png)
 
