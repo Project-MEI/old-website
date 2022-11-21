@@ -1,17 +1,17 @@
 (function ($) {
-  'use strict';
+  "use strict";
 
   // Sticky Menu
   $(window).scroll(function () {
-    if ($('.navigation').offset().top > 100) {
-      $('.navigation').addClass('nav-bg');
+    if ($(".navigation").offset().top > 100) {
+      $(".navigation").addClass("nav-bg");
     } else {
-      $('.navigation').removeClass('nav-bg');
+      $(".navigation").removeClass("nav-bg");
     }
   });
 
   // team slider
-  $('.team-slider').slick({
+  $(".team-slider").slick({
     dots: false,
     infinite: false,
     speed: 1000,
@@ -20,8 +20,8 @@
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-    prevArrow: '<button type=\'button\' class=\'prevArrow\'><i class=\'ti-arrow-left\'></i></button>',
-    nextArrow: '<button type=\'button\' class=\'nextArrow\'><i class=\'ti-arrow-right\'></i></button>',
+    prevArrow: "<button type='button' class='prevArrow'><i class='ti-arrow-left'></i></button>",
+    nextArrow: "<button type='button' class='nextArrow'><i class='ti-arrow-right'></i></button>",
     responsive: [{
         breakpoint: 1024,
         settings: {
@@ -47,7 +47,7 @@
   });
 
   // clients logo slider
-  $('.client-logo-slider').slick({
+  $(".client-logo-slider").slick({
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -87,19 +87,19 @@
 
   // about video popup
   $(document).ready(function () {
-    $('.venobox').venobox();
+    $(".venobox").venobox();
   });
 
   // animation scroll js
-  var html_body = $('html, body');
-  $('.page-scroll').on('click', function () { //use page-scroll class in any HTML tag for scrolling
-    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+  var html_body = $("html, body");
+  $(".page-scroll").on("click", function () { //use page-scroll class in any HTML tag for scrolling
+    if (location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") && location.hostname === this.hostname) {
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
       if (target.length) {
         html_body.animate({
           scrollTop: target.offset().top - 50
-        }, 1500, 'easeInOutExpo');
+        }, 1500, "easeInOutExpo");
         return false;
       }
     }
