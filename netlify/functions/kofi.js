@@ -19,8 +19,8 @@ app.use('/', async function(req, res) {
 		if (obj.verification_token !== kofi_token) return res.json(`Wrong token, fam.`);
         const embed = new MessageBuilder();
 
-		embed.setAuthor('Ko-fi', 'https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg');
-		embed.setThumbnail('https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg')
+		embed.setAuthor('Ko-fi', 'https://cdn.discordapp.com/attachments/1058667662835728394/1058790047924633620/Daco_2133679.png');
+		embed.setThumbnail('https://cdn.discordapp.com/attachments/1058667662835728394/1058790047924633620/Daco_2133679.png')
         embed.setTitle('New supporter on Ko-fi ☕');
 		embed.setURL('https://ko-fi.com/raidensakura');
 
@@ -38,7 +38,7 @@ app.use('/', async function(req, res) {
         embed.addField(`From`, `${obj.from_name}`, true);
 		embed.addField(`Type`, `${obj.type}`, true);
         embed.addField(`Amount`, `${obj.amount} ${obj.currency}`, true);
-        if (obj.message || obj.message != 'null') embed.addField(`Message`, `${obj.message}`);
+        if (obj.message && obj.message !== 'null') embed.addField(`Message`, `${obj.message}`);
 		embed.setFooter(`Thank you for supporting us!`, `https://cdn.discordapp.com/emojis/1002579260915060808.webp?size=96&quality=lossless`);
         embed.setTimestamp();
 
