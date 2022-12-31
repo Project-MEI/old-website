@@ -11,14 +11,8 @@ const webhook = new Webhook(webhook_url); //Declaring the Webhook here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/post', async function(req, res) {
-    const data = req.body.data;
-	console.log(req.body.data)
-	console.log(webhook_url)
-    if (!data) {
-		console.log('body has no data!!')
-		return;
-	}
+app.use('/', async function(req, res) {
+	const data = req.body.data;
 
     try {
         const obj = JSON.parse(data);
@@ -35,9 +29,7 @@ app.use('/post', async function(req, res) {
         return res.json({success: false, error: err});
     }
     return res.json({success: true});
-});
 
-app.use('/', async function(req, res) {
     res.json({message: "Ko-Fi Server is online!"});
     return;
 });
