@@ -1,18 +1,16 @@
-//Calling out modules
-const express = require("express");
+
+const express = require('express');
+const serverless = require('serverless-http');
 const app = express();
-const http = require('http');
 const bodyParser = require('body-parser');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const config = process.env;
 
 if(!config) {
     console.error('Config file not found.');
-    process.exit(1);
 };
 if(!config.WEBHOOK_LINK || !config.SERVER_PORT) {
     console.error('Config file missing items. Please regenerate');
-    process.exit(1);
 };
 
 const webhook = new Webhook(config.WEBHOOK_LINK); //Declaring the Webhook here
@@ -41,13 +39,9 @@ app.post('/post', async function(req, res) {
     return res.json({success: true});
 });
 
-
-app.use('/', async function(req, res) { //Handiling requests to the main endpoint
+app.use('/', async function(req, res) {
     res.json({message: "Ko-Fi Server is online!"});
     return;
 });
 
-const httpServer = http.createServer(app); //Setting up the server
-httpServer.listen(config.SERVER_PORT, function() {
-  console.log(`Ko-Fi Server online on port ${config.SERVER_PORT}`);
-});
+module.exports.handler = serverless(app);
