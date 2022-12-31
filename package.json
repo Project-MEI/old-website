@@ -9,7 +9,10 @@
     "build": "gulp build"
   },
   "dependencies": {
+    "body-parser": "^1.20.1",
     "browser-sync": "^2.27.10",
+    "discord-webhook-node": "^1.1.8",
+    "express": "^4.18.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-file-include": "^2.3.0",
