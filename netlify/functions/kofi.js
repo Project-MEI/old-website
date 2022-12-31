@@ -16,13 +16,13 @@ app.use('/', async function(req, res) {
     if (!data) return res.json(`What'chu doin here fam`);
     try {
         const obj = JSON.parse(data);
-		if (obj.verification_token != kofi_token) return res.json(`Wrong token, fam.`);
+		if (obj.verification_token !== kofi_token) return res.json(`Wrong token, fam.`);
         const embed = new MessageBuilder();
 
 		embed.setAuthor('Ko-fi', 'https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg');
 		embed.setThumbnail('https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg')
         embed.setTitle('New supporter on Ko-fi ☕');
-		embed.setUrl('https://ko-fi.com/raidensakura');
+		embed.setURL('https://ko-fi.com/raidensakura');
 
 		switch(obj.tier_name) {
 			case 'Silver':
