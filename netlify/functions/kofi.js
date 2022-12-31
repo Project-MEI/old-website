@@ -1,38 +1,53 @@
-
+// Modified from: https://github.com/eramsorgr/kofi-discord-alerts
 const express = require('express');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const webhook_url = process.env.WEBHOOK_LINK
-
-const webhook = new Webhook(webhook_url); //Declaring the Webhook here
+const kofi_token = process.env.KOFI_TOKEN
+const webhook = new Webhook(webhook_url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/', async function(req, res) {
 	const data = req.body.data;
-	console.log(req.body.data)
-
+    if (!data) return res.json(`What'chu doin here fam`);
     try {
         const obj = JSON.parse(data);
+		if (obj.verification_token != kofi_token) return res.json(`Wrong token, fam.`);
         const embed = new MessageBuilder();
-        embed.setTitle('New Ko-Fi Supporter!');
-        embed.setColor(2730976);
+
+		embed.setAuthor('Ko-fi', 'https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg');
+		embed.setThumbnail('https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg')
+        embed.setTitle('New supporter on Ko-fi ☕');
+		embed.setUrl('https://ko-fi.com/raidensakura');
+
+		switch(obj.tier_name) {
+			case 'Silver':
+				embed.setColor('#797979');
+			case 'Gold:':
+				embed.setColor('#ffc530');
+			case 'Platinum':
+				embed.setColor('#2ed5ff');
+			default:
+				embed.setColor('#9b59b6');
+		}
+
         embed.addField(`From`, `${obj.from_name}`, true);
-        embed.addField(`Amount`, `${obj.amount}`, true);
-        embed.addField(`Message`, `${obj.message}`);
+		embed.addField(`Type`, `${obj.type}`, true);
+        embed.addField(`Amount`, `${obj.amount} ${obj.currency}`, true);
+        if (obj.message || obj.message != 'null') embed.addField(`Message`, `${obj.message}`);
+		embed.setFooter(`Thank you for supporting us!`, `https://cdn.discordapp.com/emojis/1002579260915060808.webp?size=96&quality=lossless`);
         embed.setTimestamp();
+
         await webhook.send(embed);
     } catch (err) {
         console.error(err);
         return res.json({success: false, error: err});
     }
     return res.json({success: true});
-
-    res.json({message: "Ko-Fi Server is online!"});
-    return;
 });
 
 module.exports.handler = serverless(app);
