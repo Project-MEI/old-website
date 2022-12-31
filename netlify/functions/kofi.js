@@ -4,23 +4,21 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
-const config = process.env;
+const webhook_url = process.env.WEBHOOK_LINK
 
-if(!config) {
-    console.error('Config file not found.');
-};
-if(!config.WEBHOOK_LINK || !config.SERVER_PORT) {
-    console.error('Config file missing items. Please regenerate');
-};
-
-const webhook = new Webhook(config.WEBHOOK_LINK); //Declaring the Webhook here
+const webhook = new Webhook(webhook_url); //Declaring the Webhook here
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/post', async function(req, res) {
     const data = req.body.data;
-    if (!data) return;
+	console.log(req.body.data)
+	console.log(webhook_url)
+    if (!data) {
+		console.log('body has no data!!')
+		return;
+	}
 
     try {
         const obj = JSON.parse(data);
@@ -41,7 +39,6 @@ app.post('/post', async function(req, res) {
 
 app.use('/', async function(req, res) {
     res.json({message: "Ko-Fi Server is online!"});
-	console.log(config)
     return;
 });
 
