@@ -41,6 +41,7 @@ app.post('/post', async function(req, res) {
 
 app.use('/', async function(req, res) {
     res.json({message: "Ko-Fi Server is online!"});
+	console.log(config)
     return;
 });
 
