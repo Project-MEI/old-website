@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 app.use('/', async function(req, res) {
 	const data = req.body.data;
+	console.log(req.body.data)
 
     try {
         const obj = JSON.parse(data);
