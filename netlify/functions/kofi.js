@@ -11,7 +11,7 @@ const webhook = new Webhook(webhook_url); //Declaring the Webhook here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/post', async function(req, res) {
+app.use('/post', async function(req, res) {
     const data = req.body.data;
 	console.log(req.body.data)
 	console.log(webhook_url)
