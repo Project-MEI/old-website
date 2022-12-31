@@ -10,12 +10,12 @@ if(!config) {
     console.error('Config file not found.');
     process.exit(1);
 };
-if(!config.webhook_link || !config.server_port) {
+if(!config.WEBHOOK_LINK || !config.SERVER_PORT) {
     console.error('Config file missing items. Please regenerate');
     process.exit(1);
 };
 
-const webhook = new Webhook(config.webhook_link); //Declaring the Webhook here
+const webhook = new Webhook(config.WEBHOOK_LINK); //Declaring the Webhook here
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -48,6 +48,6 @@ app.use('/', async function(req, res) { //Handiling requests to the main endpoin
 });
 
 const httpServer = http.createServer(app); //Setting up the server
-httpServer.listen(config.server_port, function() {
-  console.log(`Ko-Fi Server online on port ${config.server_port}`);
+httpServer.listen(config.SERVER_PORT, function() {
+  console.log(`Ko-Fi Server online on port ${config.SERVER_PORT}`);
 });
