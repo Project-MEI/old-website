@@ -1,0 +1,2 @@
+# Redirects from what the browser requests to what we serve
+/genshinutils            https://github.com/raidensakura/raiden-cogs/tree/genshin/genshinutils

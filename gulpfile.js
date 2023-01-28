@@ -15,7 +15,7 @@ const plumber = require("gulp-plumber");
 
 var path = {
   src: {
-    html: "source/*.html",
+    html: "source/*",
     others: "source/*.+(php|ico|png)",
     htminc: "source/partials/**/*.htm",
     incdir: "source/partials/",
